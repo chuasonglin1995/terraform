@@ -1,0 +1,27 @@
+#  Local .terraform directories
+**/.terraform/*
+
+# .lock.hcl files for terraform version > 0.14
+*.terraform.lock.hcl
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
+
+# .lock.hcl files
+*.terraform.lock.hcl
+tfplan.out
+
+*/**/.DS_Store
+
+# .lock.hcl files
+*terraform.lock.hcl
+
+# Mac OS
+.DS_Store
+
+*.spl
+*.pem
