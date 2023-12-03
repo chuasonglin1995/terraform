@@ -5,13 +5,13 @@ terraform {
       version = "~> 4.0"
     }
   }
-}
+} 
 
 # Configure the AWS Provider
 provider "aws" {
   region = "ap-southeast-1"
-  access_key = "AKIAXKG36VHZCDLPNUX2"
-  secret_key = "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"
+  access_key = ""
+  secret_key = ""
 }
 
 variable "subnet_prefix" {
