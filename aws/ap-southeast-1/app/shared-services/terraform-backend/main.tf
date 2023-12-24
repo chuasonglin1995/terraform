@@ -42,3 +42,17 @@ resource "aws_dynamodb_table" "this" {
     prevent_destroy = true
   }
 }
+
+resource "aws_kms_key" "this" {
+  description  = "KMS Key to Encrypt songprojectx's Infrastucture IaC"
+  multi_region = true
+  tags         = local.default_tags
+  lifecycle {
+    prevent_destroy = true
+  }
+}
+
+resource "aws_kms_alias" "this" {
+  name          = "alias/terraform_state_key"
+  target_key_id = aws_kms_key.this.id
+}
