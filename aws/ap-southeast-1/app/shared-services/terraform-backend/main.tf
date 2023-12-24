@@ -27,3 +27,18 @@ module "s3_bucket" {
   }
   tags = local.default_tags
 }
+
+resource "aws_dynamodb_table" "this" {
+  name           = "${local.base_name}-lock"
+  read_capacity  = 7
+  write_capacity = 7
+  hash_key       = "LockID"
+  attribute {
+    name = "LockID"
+    type = "S"
+  }
+  tags = local.default_tags
+  lifecycle {
+    prevent_destroy = true
+  }
+}
