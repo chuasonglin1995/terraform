@@ -8,16 +8,15 @@ terraform {
   }
   backend "s3" {
     encrypt        = true
-    bucket         = "songprojectx-terraform-state"
+    bucket         = "songprojectx-terraform-states"
     region         = "ap-southeast-1"
     key            = "terraform/aws/songprojectx/ap-southeast-1/storage/s3/songprojectx-staging-live"
     dynamodb_table = "songprojectx-terraform-lock"
-    kms_key_id     = "arn:aws:kms:ap-southeast-1:052972459506:alias/terraform_state_key"
-    profile        = "song_local"
+    kms_key_id     = "arn:aws:kms:ap-southeast-1:451622602888:alias/terraform_state_key"
+    profile        = "song_aws"
   }
 }
 
 provider "aws" {
-  profile = "song_local"
-  region  = "ap-southeast-1"
+  region = "ap-southeast-1"
 }

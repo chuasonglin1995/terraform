@@ -1,7 +1,7 @@
 locals {
-  bucket_name = "songprojectx-staging-live"
+  bucket_name = "songprojectx-stg-live"
   default_tags = {
-    Owner     = "Song Lin"
+    Owner     = "Chua Song Lin"
     ManagedBy = "terraform"
   }
 }
@@ -16,7 +16,7 @@ data "aws_iam_policy_document" "this" {
     principals {
       type = "AWS"
       identifiers = [
-        "arn:aws:iam::502972459506:user/chuasonglin",
+        "arn:aws:iam::451622602888:user/songlin",
       ]
     }
     actions = [
@@ -44,11 +44,11 @@ data "aws_iam_policy_document" "this" {
 
 module "s3_bucket" {
   source                   = "terraform-aws-modules/s3-bucket/aws"
-  version                  = "3.2.4"
+  version                  = "3.15.1"
   bucket                   = local.bucket_name
   acl                      = "private"
   control_object_ownership = true
-  object_ownership         = "BucketOwnerEnforced"
+  object_ownership         = "BucketOwnerPreferred"
   restrict_public_buckets  = true
   ignore_public_acls       = true
   block_public_acls        = true
